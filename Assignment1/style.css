@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 15px 50px;
+}
+
+/* --- Logo Adjustment --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 20px;    /* Adjust this number to make the logo larger or smaller */
+    width: 20px;     /* Match the height for a perfect circle */
+    border-radius: 50%; /* Ensures the image stays circular */
+    object-fit: cover;  /* Prevents the logo from stretching */
+}
+/* ------------------------ */
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+/* Menubar */
+.menubar {
+    background: #444;
+}
+
+.menubar ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.menubar ul li a {
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+}
+
+.menubar ul li a:hover {
+    background: #555;
+}
+
+/* Main Container: Sidebar + Content */
+.container {
+    display: flex;
+    min-height: 500px;
+}
+
+.sidebar {
+    flex: 1;
+    background: #f4f4f4;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.content {
+    flex: 4;
+    padding: 20px;
+}
+
+/* Three Boxes Layout */
+.box-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    flex: 1;
+    border-radius: 8px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}

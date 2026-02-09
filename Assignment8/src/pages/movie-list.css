@@ -1,0 +1,112 @@
+.main-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+.see-all {
+    color: #f84464;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.movie-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.movie-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.movie-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rating-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.star-icon {
+    color: #f84464;
+    margin-right: 5px;
+}
+
+.movie-info {
+    text-align: left;
+}
+
+.movie-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-genre {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.movie-meta {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Responsive Grid */
+@media (max-width: 600px) {
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .movie-title {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Assignments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <h1>DOM Assignments</h1>
+        <div class="controls">
+            <button id="themeToggle">Toggle Dark Mode</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="card">
+            <h2>1. Hide/Show Paragraph</h2>
+            <p id="targetPara">This is a mysterious paragraph. Use the button below to make it vanish or reappear!</p>
+            <button id="toggleParaBtn">Hide Paragraph</button>
+        </section>
+
+        <section class="card">
+            <h2>2. Dynamic Div Creation</h2>
+            <div id="divContainer" class="box-grid"></div>
+            <button id="addDivBtn">Add New Box</button>
+        </section>
+
+        <section class="card">
+            <h2>3. Dynamic CSS Stylizer</h2>
+            <div id="previewBox">Adjust my style!</div>
+            
+            <div class="style-controls">
+                <label>Font Size (Slider): 
+                    <input type="range" id="sizeSlider" min="10" max="100" value="20">
+                </label>
+                
+                <label>Background Color: 
+                    <input type="color" id="bgColorPicker" value="#e0e0e0">
+                </label>
+                
+                <label>Text Color: 
+                    <input type="color" id="textColorPicker" value="#000000">
+                </label>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

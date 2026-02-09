@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment 2 - Professional Structure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2 style="text-align: center; color: #333;">Assignment 2 - Master Controller</h2>
+
+    <div class="card">
+        <h2>1. Even Numbers (1-100)</h2>
+        <div id="out1" class="output">Ready...</div>
+    </div>
+
+    <div class="card">
+        <h2>2. Calculator</h2>
+        <input type="number" id="num1" placeholder="Number 1">
+        <input type="number" id="num2" placeholder="Number 2">
+        <select id="oper">
+            <option value="+">Add (+)</option>
+            <option value="-">Subtract (-)</option>
+            <option value="*">Multiply (*)</option>
+            <option value="/">Divide (/)</option>
+        </select>
+        <div id="out2" class="output">Ready...</div>
+    </div>
+
+    <div class="card">
+        <h2>3. Tax </h2>
+        <input type="number" id="salaryInput" placeholder="Enter Salary">
+        <div id="out3" class="output">Tax: ₹0</div>
+    </div>
+
+    <div class="card">
+        <h2>4. Sum of Products</h2>
+        <input type="number" id="n1" placeholder="Number 1">
+        <input type="number" id="n2" placeholder="Number 2">
+        <div id="out4" class="output">Result: 0</div>
+    </div>
+
+    <div class="card master-btn-card">
+        <button onclick="calculateEverything()">RUN ALL CALCULATIONS</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

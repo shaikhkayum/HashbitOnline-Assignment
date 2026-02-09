@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice 1 - Delta</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        h1 { text-align: center; color: #2c3e50; }
+        .assignment-box {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        h3 { font-size: 1.1rem; color: #34495e; margin-bottom: 10px; }
+        input {
+            padding: 8px;
+            width: 80%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .output {
+            background: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            font-family: monospace;
+            min-height: 20px;
+            color: #27ae60;
+        }
+        .btn-container { text-align: center; margin-top: 30px; }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #2980b9; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>JS Practice 1 - Delta</h1>
+
+    <div class="assignment-box">
+        <h3>1. Variable Scoping (let, const, var)</h3>
+        <p><small>Explanation of scope differences will appear below.</small></p>
+        <div id="out1" class="output"></div>
+    </div>
+
+    <div class="assignment-box">
+        <h3>2. Return Second Fruit</h3>
+        <input type="text" id="in2" value="Apple, Banana, Cherry, Date, Elderberry">
+        <div id="out2" class="output"></div>
+    </div>
+
+    <div class="assignment-box">
+        <h3>3. Push and Pop Element</h3>
+        <input type="text" id="in3" value="Red, Green, Blue">
+        <div id="out3" class="output"></div>
+    </div>
+
+    <div class="assignment-box">
+        <h3>4. Square Numbers (map)</h3>
+        <input type="text" id="in4" value="2, 4, 6, 8">
+        <div id="out4" class="output"></div>
+    </div>
+
+    <div class="assignment-box">
+        <h3>5. Filter Odd Numbers</h3>
+        <input type="text" id="in5" value="1, 2, 3, 4, 5, 6">
+        <div id="out5" class="output"></div>
+    </div>
+
+    <div class="assignment-box">
+        <h3>6. Person Greeting</h3>
+        <input type="text" id="in6_name" placeholder="Name" value="Alex">
+        <input type="text" id="in6_age" placeholder="Age" value="25">
+        <input type="text" id="in6_job" placeholder="Occupation" value="Developer">
+        <div id="out6" class="output"></div>
+    </div>
+
+    <div class="assignment-box">
+        <h3>7. Rectangle Area (Width * Height)</h3>
+        <input type="number" id="in7_w" placeholder="Width" value="10">
+        <input type="number" id="in7_h" placeholder="Height" value="5">
+        <div id="out7" class="output"></div>
+    </div>
+
+    <div class="assignment-box">
+        <h3>8. Get Object Keys</h3>
+        <div id="out8" class="output"></div>
+    </div>
+
+    <div class="assignment-box">
+        <h3>9. Merge Two Objects</h3>
+        <div id="out9" class="output"></div>
+    </div>
+
+    <div class="assignment-box">
+        <h3>10. Sum of Numbers (reduce)</h3>
+        <input type="text" id="in10" value="10, 20, 30, 40">
+        <div id="out10" class="output"></div>
+    </div>
+
+    <div class="btn-container">
+        <button onclick="runAll()">Run All Assignments</button>
+    </div>
+</div>
+
+<script>
+    function runAll() {
+        // 1. Scoping
+        function scopeDemo() {
+            var v = "Function-scoped";
+            let l = "Block-scoped";
+            const c = "Block-scoped & Immutable";
+            return `var: ${v} | let: ${l} | const: ${c}`;
+        }
+        document.getElementById('out1').innerText = scopeDemo();
+
+        // 2. Second Fruit
+        const fruits = document.getElementById('in2').value.split(',').map(s => s.trim());
+        const getSecond = (arr) => arr[1];
+        document.getElementById('out2').innerText = "Second fruit: " + getSecond(fruits);
+
+        // 3. Push & Pop
+        const list3 = document.getElementById('in3').value.split(',').map(s => s.trim());
+        function modifyArray(arr) {
+            arr.push("NewElement");
+            arr.pop();
+            return arr;
+        }
+        document.getElementById('out3').innerText = JSON.stringify(modifyArray(list3));
+
+        // 4. Map Squared
+        const nums4 = document.getElementById('in4').value.split(',').map(Number);
+        const squared = (arr) => arr.map(n => n * n);
+        document.getElementById('out4').innerText = squared(nums4);
+
+        // 5. Filter Odds
+        const nums5 = document.getElementById('in5').value.split(',').map(Number);
+        const getOdds = (arr) => arr.filter(n => n % 2 !== 0);
+        document.getElementById('out5').innerText = getOdds(nums5);
+
+        // 6. Person Greeting
+        const person = {
+            name: document.getElementById('in6_name').value,
+            age: document.getElementById('in6_age').value,
+            occupation: document.getElementById('in6_job').value
+        };
+        const greet = (p) => `Hello, I'm ${p.name}, a ${p.age} year old ${p.occupation}!`;
+        document.getElementById('out6').innerText = greet(person);
+
+        // 7. Rectangle Area
+        const rect = { width: Number(document.getElementById('in7_w').value), height: Number(document.getElementById('in7_h').value) };
+        const calcArea = (obj) => obj.width * obj.height;
+        document.getElementById('out7').innerText = "Area: " + calcArea(rect);
+
+        // 8. Object Keys
+        const sampleObj = { id: 101, status: "Active", theme: "Dark" };
+        document.getElementById('out8').innerText = "Keys: " + Object.keys(sampleObj).join(", ");
+
+        // 9. Merge Objects
+        const objA = { brand: "Tesla" };
+        const objB = { model: "Model S" };
+        const merged = Object.assign({}, objA, objB);
+        document.getElementById('out9').innerText = JSON.stringify(merged);
+
+        // 10. Sum Reduce
+        const nums10 = document.getElementById('in10').value.split(',').map(Number);
+        const sum = (arr) => arr.reduce((acc, curr) => acc + curr, 0);
+        document.getElementById('out10').innerText = "Total Sum: " + sum(nums10);
+    }
+</script>
+
+</body>
+</html>
